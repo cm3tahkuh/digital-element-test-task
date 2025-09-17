@@ -1,0 +1,20 @@
+{
+  "name": "digital-element-test-task",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.ts"
+  },
+  "devDependencies": {
+    "@delement/eslint-config-master": "^1.1.7",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.35.0",
+    "postcss": "^8.5.6",
+    "sass": "^1.92.1",
+    "vite": "^7.1.2"
+  }
+}
