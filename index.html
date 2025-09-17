@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,9 +7,49 @@
     <title>HomePage</title>
   </head>
   <body>
-    <div id="app">
-      <h1>HELLO</h1>
-    </div>
-    <script type="module" src="/src/main.js"></script>
+    <header class="header">
+      <div class="container header__container">
+        <a href="/" class="header__logo">
+          <img
+            src="/assets/icons/logo.svg"
+            alt="Logo"
+            class="header__logo-img"
+          />
+        </a>
+
+        <button class="header__burger" aria-label="Open menu">
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+        </button>
+
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="#" class="header__link">Home</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link">About</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container hero__container">
+          <h1>TEST</h1>
+                    <img
+            src="/assets/images/hero__bg.png"
+            alt="Hero Background Image"
+            class=""
+          />
+        </div>
+      </section>
+    </main>
+    <script defer type="module" src="/src/main.js"></script>
   </body>
 </html>
