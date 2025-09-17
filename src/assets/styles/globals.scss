@@ -1,0 +1,9 @@
+@use "./variables.scss" as variables;
+
+html {
+  font-size: 8px;
+}
+
+body {
+  font-family: variables.$primary-font;
+}
