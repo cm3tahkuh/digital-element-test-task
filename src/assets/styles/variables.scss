@@ -1,9 +1,35 @@
 $primary-font: "Gilroy", sans-serif;
 $secondary-font: "Galien", sans-serif;
 
-$white-color: #FFFFFF;
+$white-color: #ffffff;
 
 $blue-color-first: #1f3f68;
 $blue-color-second: #316099;
 $blue-color-third: #356ead;
-$blue-color-four: #5A98D0;
+$blue-color-four: #5a98d0;
+
+$font-size-base: 1em; // 16px
+$font-size-h1-desktop: 3.5em;
+$font-size-h1-laptop: 2.8em;
+$font-size-h1-tablet: 2.2em;
+$font-size-h1-mobile: 1.8em;
+
+$font-size-p-desktop: 1.1em;
+$font-size-p-tablet: 1em;
+$font-size-p-mobile: 0.95em;
+
+$font-size-button-desktop: 1.1em;
+$font-size-button-mobile: 1em;
+
+// Spacing
+$spacing-xs: 10px;
+$spacing-sm: 15px;
+$spacing-md: 20px;
+$spacing-lg: 30px;
+$spacing-xl: 40px;
+$spacing-xxl: 80px;
+
+$breakpoint-desktop: 1200px;
+$breakpoint-laptop: 992px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;

@@ -1,0 +1,98 @@
+@use "variables";
+
+@mixin media-breakpoint-down($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: $breakpoint-desktop;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  @include media-breakpoint-down($breakpoint-tablet) {
+    padding: 0 $spacing-sm;
+  }
+}
+
+@mixin flex-center-y {
+  display: flex;
+  align-items: center;
+}
+
+@mixin title(
+  $max-width,
+  $font-weight,
+  $font-size,
+  $line-height,
+  $letter-spacing,
+  $text-color
+) {
+  width: 100%;
+  max-width: $max-width;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  color: $text-color;
+  white-space: pre-line;
+}
+
+@mixin paragraph($text-width, $text-color) {
+  max-width: $text-width;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 162%;
+  letter-spacing: 0.05em;
+  color: variables.$blue-color-first;
+  margin-bottom: 9rem;
+    white-space: pre-line;
+}
+
+@mixin flex-between-y {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin circle-shape($size, $bg-color, $text-color, $font-size: 1.2em) {
+  width: $size;
+  height: $size;
+  background-color: $bg-color;
+  border-radius: 50%;
+  @include flex-center-y; // Vertically center content
+  justify-content: center; // Horizontally center content
+  color: $text-color;
+  font-weight: bold;
+  font-size: $font-size;
+}
+
+@mixin cta-button(
+  $bg-color,
+  $text-color,
+  $padding,
+  $font-size,
+  $border-radius: 1rem
+) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $padding;
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 5px 10px 20px 0 rgba(53, 110, 173, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// Positioning Mixins
+@mixin absolute-center-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
