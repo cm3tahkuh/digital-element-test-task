@@ -1,0 +1,100 @@
+@use "../variables.scss";
+@use "../mixins.scss";
+
+.cards {
+  padding: 22rem 0;
+
+  &__container {
+    position: relative;
+    display: grid;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  &__title {
+    @include mixins.title(
+      370px,
+      600,
+      3.5rem,
+      130%,
+      0.02em,
+      variables.$blue-color-second
+    );
+  }
+
+  &__list {
+    display: grid;
+    position: absolute;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12rem;
+
+    & > .card:nth-child(1) {
+      grid-column: 1 / 2;
+      grid-row: 2;
+      align-self: start;
+      transform: translateY(-50%);
+    }
+    & > .card:nth-child(2) {
+      grid-column: 2 / 3;
+      grid-row: 1;
+      align-self: start;
+    }
+    & > .card:nth-child(3) {
+      grid-column: 2 / 3;
+      grid-row: 2;
+      align-self: start;
+    }
+  }
+}
+
+.card {
+  background: variables.$white-color;
+  padding: 6rem;
+  border-radius: 1.25rem;
+  box-shadow: 5px 20px 50px 0 rgba(16, 112, 177, 0.2);
+  position: relative;
+
+  &__img-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 120px;
+    display: block;
+  }
+
+  &__title {
+    @include mixins.title(
+      290px,
+      600,
+      2.5rem,
+      150%,
+      0.05em,
+      variables.$blue-color-first
+    );
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    @include mixins.paragraph(425px, variables.$blue-color-first);
+    margin-bottom: 1rem;
+  }
+
+  &__link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: variables.$blue-color-third;
+    text-decoration: none;
+  }
+
+  &--featured {
+    padding-top: 3.2rem;
+
+    .card__img {
+      transform: translateY(-5rem);
+      z-index: 6;
+    }
+  }
+}

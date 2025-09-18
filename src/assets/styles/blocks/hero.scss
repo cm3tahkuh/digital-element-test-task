@@ -1,7 +1,65 @@
+@use "../variables.scss";
+@use "../mixins.scss";
+
 .hero {
-  background: linear-gradient(
-    0deg,
-    rgba(152, 195, 232, 0.2) 28.39%,
-    rgba(152, 195, 232, 0) 100%
-  );
+  position: relative;
+  padding: 24rem 0;
+
+  &__background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      0deg,
+      #98c3e8 28.39%,
+      rgba(152, 195, 232, 0) 100%
+    );
+    opacity: 0.2;
+    z-index: 0;
+    height: 20rem;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__text-column {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__illustration {
+    position: absolute;
+    bottom: -19rem;
+    right: -27.5rem;
+    z-index: 0;
+  }
+
+  .button {
+    &--cta {
+      @include mixins.cta-button(
+        variables.$blue-color-four,
+        variables.$white-color,
+        2rem 6rem,
+        2rem
+      );
+    }
+  }
+
+  &__title {
+    font-family: variables.$secondary-font;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 116%;
+    letter-spacing: 0.04em;
+    color: variables.$blue-color-first;
+    max-width: 512px;
+    margin-bottom: 4rem;
+  }
+
+  &__description {
+    @include mixins.paragraph(425px, variables.$blue-color-first);
+  }
 }
