@@ -20,11 +20,11 @@
       0.02em,
       variables.$blue-color-second
     );
+        position: absolute;
   }
 
   &__list {
     display: grid;
-    position: absolute;
     grid-template-columns: repeat(2, 1fr);
     gap: 12rem;
 
