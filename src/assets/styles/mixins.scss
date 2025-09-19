@@ -46,7 +46,21 @@
   letter-spacing: 0.05em;
   color: variables.$blue-color-first;
   margin-bottom: 9rem;
-    white-space: pre-line;
+  white-space: pre-line;
+}
+
+@mixin link(
+  $font-weight,
+  $font-size,
+  $line-height,
+  $letter-spacing,
+  $text-color
+) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  color: $text-color;
 }
 
 @mixin flex-between-y {

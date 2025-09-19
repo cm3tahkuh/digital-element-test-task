@@ -5,10 +5,13 @@
   padding: 22rem 0;
 
   &__container {
-    position: relative;
+  }
+
+  &__content {
     display: grid;
-    gap: 4rem;
+    position: relative;
     align-items: start;
+    gap: 4rem;
   }
 
   &__title {
@@ -20,13 +23,14 @@
       0.02em,
       variables.$blue-color-second
     );
+    position: absolute;
   }
 
   &__list {
     display: grid;
-    position: absolute;
-    grid-template-columns: repeat(2, 1fr);
+    position: relative;
     gap: 12rem;
+    justify-self: end;
 
     & > .card:nth-child(1) {
       grid-column: 1 / 2;
@@ -53,6 +57,7 @@
   border-radius: 1.25rem;
   box-shadow: 5px 20px 50px 0 rgba(16, 112, 177, 0.2);
   position: relative;
+  max-width: 380px;
 
   &__img-wrapper {
     position: relative;
@@ -61,8 +66,8 @@
 
   &__img {
     width: 100%;
-    max-width: 120px;
-    display: block;
+    max-width: 132px;
+    margin: 0 auto;
   }
 
   &__title {
@@ -79,14 +84,11 @@
 
   &__text {
     @include mixins.paragraph(425px, variables.$blue-color-first);
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
   }
 
   &__link {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: variables.$blue-color-third;
-    text-decoration: none;
+    @include mixins.link(600, 14px, 214%, 0.05em, variables.$blue-color-four);
   }
 
   &--featured {
@@ -95,6 +97,7 @@
     .card__img {
       transform: translateY(-5rem);
       z-index: 6;
+      max-width: 197px;
     }
   }
 }
