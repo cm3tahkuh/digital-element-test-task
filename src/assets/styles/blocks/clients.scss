@@ -5,17 +5,36 @@
   padding: 12rem 0;
   position: relative;
 
+  @include mixins.respond(mobile) {
+    padding: 6rem 0;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
     gap: 15rem;
     position: relative;
     z-index: 2;
+
+    @include mixins.respond(tablet) {
+      gap: 6rem;
+    }
+
+    @include mixins.respond(mobile) {
+      gap: 6rem;
+    }
   }
 
   &__header {
     display: flex;
     gap: 12rem;
+
+    @include mixins.respond(laptop) {
+      flex-direction: column;
+      gap: 4rem;
+      text-align: center;
+      align-items: center;
+    }
   }
 
   &__title {
@@ -24,6 +43,19 @@
     letter-spacing: 0.05em;
     color: #ffffff;
     max-width: 227px;
+
+    @include mixins.respond(laptop) {
+      font-size: 3.8rem;
+    }
+
+    @include mixins.respond(tablet) {
+      max-width: 100%;
+      font-size: 3.2rem;
+    }
+
+    @include mixins.respond(mobile) {
+      font-size: 2.6rem;
+    }
   }
 
   &__description {
@@ -32,11 +64,32 @@
     color: rgba(255, 255, 255, 0.85);
     max-width: 523px;
     letter-spacing: 0.05em;
+
+    @include mixins.respond(laptop) {
+      font-size: 1.8rem;
+    }
+
+    @include mixins.respond(tablet) {
+      text-align: center;
+      font-size: 1.6rem;
+    }
+
+    @include mixins.respond(mobile) {
+      font-size: 1.4rem;
+    }
   }
 
   &__logos {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+
+    @include mixins.respond(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.respond(mobile) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__logo {
@@ -71,6 +124,23 @@
     }
     &:nth-last-child(-n + 4) {
       border-bottom: none;
+    }
+
+    @include mixins.respond(laptop) {
+      font-size: 2.2rem;
+      padding: 4rem;
+    }
+
+    @include mixins.respond(tablet) {
+      font-size: 2rem;
+      border: none;
+
+      padding: 3rem;
+    }
+
+    @include mixins.respond(mobile) {
+      font-size: 1.8rem;
+      padding: 2rem;
     }
   }
 }

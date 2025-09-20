@@ -6,18 +6,24 @@
   }
 }
 
-@mixin container {
-  max-width: $breakpoint-desktop;
-  margin: 0 auto;
-  padding: 0 $spacing-md;
-  @include media-breakpoint-down($breakpoint-tablet) {
-    padding: 0 $spacing-sm;
+@mixin respond($device) {
+  @if $device == desktop {
+    @include media-breakpoint-down(variables.$breakpoint-desktop) {
+      @content;
+    }
+  } @else if $device == laptop {
+    @include media-breakpoint-down(variables.$breakpoint-laptop) {
+      @content;
+    }
+  } @else if $device == tablet {
+    @include media-breakpoint-down(variables.$breakpoint-tablet) {
+      @content;
+    }
+  } @else if $device == mobile {
+    @include media-breakpoint-down(variables.$breakpoint-mobile) {
+      @content;
+    }
   }
-}
-
-@mixin flex-center-y {
-  display: flex;
-  align-items: center;
 }
 
 @mixin title(
@@ -45,26 +51,21 @@
   line-height: 162%;
   letter-spacing: 0.05em;
   color: variables.$blue-color-first;
-  margin-bottom: 9rem;
-    white-space: pre-line;
+  white-space: pre-line;
 }
 
-@mixin flex-between-y {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@mixin circle-shape($size, $bg-color, $text-color, $font-size: 1.2em) {
-  width: $size;
-  height: $size;
-  background-color: $bg-color;
-  border-radius: 50%;
-  @include flex-center-y; // Vertically center content
-  justify-content: center; // Horizontally center content
-  color: $text-color;
-  font-weight: bold;
+@mixin text(
+  $font-weight,
+  $font-size,
+  $line-height,
+  $letter-spacing,
+  $text-color
+) {
+  font-weight: $font-weight;
   font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  color: $text-color;
 }
 
 @mixin cta-button(
@@ -88,11 +89,4 @@
   &:hover {
     transform: translateY(-2px);
   }
-}
-
-// Positioning Mixins
-@mixin absolute-center-y {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
 }

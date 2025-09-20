@@ -1,0 +1,150 @@
+@use "../variables";
+@use "../mixins";
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__content {
+    margin: 4rem 0;
+    background: #fff;
+    padding: 7rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 67.5rem;
+    box-shadow: 5px 10px 50px 0 rgba(16, 112, 177, 0.2);
+    position: relative;
+    animation: slideIn 0.3s ease;
+    overflow-y: auto;
+    max-height: 95vh;
+  }
+
+  &__close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 6rem;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-1.875rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 53.5rem;
+
+  &__title {
+    @include mixins.text(600, 2.5rem, 150%, 0.04rem, inherit);
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+  }
+
+  &__label {
+    @include mixins.text(400, 2rem, 187%, 0.04rem, inherit);
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 2.5rem 5rem;
+    border: 1px solid #dce3f0;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 9rem;
+    border-radius: 10px;
+
+    @include mixins.text(400, 2rem, 187%, 0.04rem, inherit);
+
+    &:focus {
+      border-color: #3f80ea;
+      box-shadow: 0 0 0 0.375rem rgba(63, 128, 234, 0.1);
+    }
+
+    &.is-invalid {
+      border-color: #e63946;
+    }
+  }
+
+  &__textarea {
+    resize: none;
+    min-height: 15rem;
+  }
+
+  &__error {
+    font-size: 2rem;
+    color: #e63946;
+    margin: 1rem 0;
+  }
+
+  &__button {
+    @include mixins.cta-button(
+      variables.$blue-color-four,
+      variables.$white-color,
+      2rem 6rem,
+      2rem
+    );
+    transition: background 0.2s ease, transform 0.1s ease;
+
+    &:hover {
+      background: #346ed4;
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+}
+
+.success-popup {
+  position: fixed;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2c7a4a;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1100;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+}

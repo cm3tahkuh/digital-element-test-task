@@ -4,6 +4,15 @@
 .hero {
   position: relative;
   padding: 24rem 0;
+  overflow: hidden;
+
+  @include mixins.respond(tablet) {
+    padding: 14rem 0;
+  }
+
+  @include mixins.respond(mobile) {
+    padding: 12rem 0;
+  }
 
   &__background {
     position: absolute;
@@ -23,18 +32,78 @@
   &__container {
     position: relative;
     z-index: 1;
+
+    @include mixins.respond(tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      flex-direction: column;
+      text-align: center;
+    }
   }
 
   &__text-column {
     position: relative;
     z-index: 2;
+
+    @include mixins.respond(tablet) {
+      max-width: 100%;
+    }
   }
 
-  &__illustration {
-    position: absolute;
-    bottom: -19rem;
-    right: -27.5rem;
-    z-index: 0;
+  &__title {
+    font-family: variables.$secondary-font;
+    @include mixins.title(
+      512px,
+      700,
+      8rem,
+      116%,
+      0.04em,
+      variables.$blue-color-first
+    );
+
+    margin-bottom: 4rem;
+
+    @include mixins.respond(desktop) {
+      font-size: 6rem;
+    }
+
+    @include mixins.respond(laptop) {
+      font-size: 4.5rem;
+    }
+
+    @include mixins.respond(tablet) {
+      line-height: 120%;
+      text-align: center;
+      width: 100%;
+      max-width: none;
+    }
+
+    @include mixins.respond(mobile) {
+      font-size: 3rem;
+      text-align: center;
+    }
+  }
+
+  &__description {
+    @include mixins.paragraph(425px, variables.$blue-color-first);
+    margin-bottom: 9rem;
+
+    @include mixins.respond(laptop) {
+      max-width: 100%;
+      font-size: 1.6rem;
+    }
+
+    @include mixins.respond(tablet) {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 4.5rem;
+    }
+    @include mixins.respond(mobile) {
+      font-size: 1.5rem;
+      margin-bottom: 4.5rem;
+    }
   }
 
   .button {
@@ -45,21 +114,45 @@
         2rem 6rem,
         2rem
       );
+
+      @include mixins.respond(laptop) {
+        padding: 1.5rem 4rem;
+      }
+
+      @include mixins.respond(tablet) {
+        padding: 1.2rem 3rem;
+        width: 100%;
+      }
     }
   }
 
-  &__title {
-    font-family: variables.$secondary-font;
-    font-weight: 700;
-    font-size: 64px;
-    line-height: 116%;
-    letter-spacing: 0.04em;
-    color: variables.$blue-color-first;
-    max-width: 512px;
-    margin-bottom: 4rem;
-  }
+  &__illustration {
+    position: absolute;
+    bottom: -19rem;
+    right: -23rem;
+    z-index: -1;
 
-  &__description {
-    @include mixins.paragraph(425px, variables.$blue-color-first);
+    @include mixins.respond(desktop) {
+      right: -15rem;
+      bottom: -22rem;
+      max-width: 70%;
+    }
+
+    @include mixins.respond(laptop) {
+      right: -10rem;
+      bottom: -27rem;
+      max-width: 80%;
+    }
+
+    @include mixins.respond(tablet) {
+      position: static;
+      margin-top: 4rem;
+      max-width: 100%;
+    }
+
+    @include mixins.respond(mobile) {
+      margin-top: 8rem;
+      width: 100%;
+    }
   }
 }

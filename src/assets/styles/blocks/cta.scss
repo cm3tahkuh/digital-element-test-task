@@ -3,8 +3,12 @@
 
 .cta {
   position: relative;
-
+  color: white;
   padding: 12em 0;
+
+  @include mixins.respond(mobile) {
+    padding: 6rem 0;
+  }
 
   &__text {
     max-width: 500px;
@@ -15,45 +19,106 @@
     position: absolute;
     bottom: -12rem;
     left: -9999px;
-    right: 10rem;
+    right: 17rem;
     height: 2px;
     background: rgba(255, 255, 255, 0.3);
     margin-top: 12rem;
+
+    @include mixins.respond(desktop) {
+      right: 0;
+    }
+
+    @include mixins.respond(tablet) {
+      bottom: -8rem;
+    }
+
+    @include mixins.respond(mobile) {
+      display: none;
+    }
   }
 
   &__container {
     display: flex;
-
     align-items: center;
     gap: 22.5rem;
     position: relative;
     z-index: 2;
+
+    @include mixins.respond(desktop) {
+      gap: 14rem;
+    }
+
+    @include mixins.respond(laptop) {
+      gap: 12rem;
+    }
+
+    @include mixins.respond(tablet) {
+      flex-direction: column;
+      gap: 6rem;
+      text-align: center;
+    }
+
+    @include mixins.respond(mobile) {
+      gap: 4rem;
+    }
   }
 
-  &__text {
-    max-width: 500px;
-  }
   &__title {
-    font-size: 4.5rem;
-    font-weight: 600;
-    color: #ffffff;
-    max-width: 340px;
-    font-weight: 600;
-    line-height: 128%;
-    letter-spacing: 0.05em;
+    @include mixins.title(340px, 600, 4.5rem, 128%, 0.05rem, inherit);
     margin-bottom: 4rem;
+
+    @include mixins.respond(laptop) {
+      font-size: 3.8rem;
+    }
+
+    @include mixins.respond(tablet) {
+      max-width: 100%;
+      font-size: 3.2rem;
+    }
+
+    @include mixins.respond(mobile) {
+      font-size: 2.6rem;
+      margin-bottom: 2rem;
+    }
   }
+
   &__description {
-    font-size: 2rem;
-    max-width: 460px;
-    line-height: 1.6;
-    letter-spacing: 0.05em;
-    color: rgba(255, 255, 255, 0.85);
+    max-width: 432px;
+    @include mixins.text(400, 2rem, 162%, 0.05rem, inherit);
+
+    @include mixins.respond(laptop) {
+      font-size: 1.8rem;
+      max-width: 100%;
+    }
+
+    @include mixins.respond(tablet) {
+      font-size: 1.6rem;
+    }
+
+    @include mixins.respond(mobile) {
+      font-size: 1.4rem;
+    }
   }
+
   &__button {
     @include mixins.cta-button(#5a98d0, white, 2rem 9rem, 2rem, 1rem);
+
     &:hover {
       background: #4a86c5;
+    }
+
+    @include mixins.respond(laptop) {
+      padding: 1.8rem 6rem;
+    }
+
+    @include mixins.respond(tablet) {
+      padding: 1.6rem 4rem;
+      width: 100%;
+    }
+
+    @include mixins.respond(mobile) {
+      padding: 1.4rem 2rem;
+      font-size: 1.6rem;
     }
   }
 }

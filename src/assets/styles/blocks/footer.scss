@@ -1,79 +1,167 @@
+@use "../variables";
+@use "../mixins";
+
 .footer {
-  color: #ffffff;
+  color: variables.$white-color;
   padding: 12rem 0 8rem 0;
+
+  @include mixins.respond(mobile) {
+    padding: 6rem 0 4rem 0;
+  }
 
   &__content {
     display: flex;
     margin-bottom: 8rem;
+
+    @include mixins.respond(tablet) {
+      flex-direction: column;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    @include mixins.respond(mobile) {
+      gap: 4rem;
+      margin-bottom: 6rem;
+    }
   }
 
   &__background--primary {
-    background: hsl(208, 56%, 58%);
+    background: variables.$blue-color-four;
     border-radius: 25rem 0 0 0;
+
+    @include mixins.respond(desktop) {
+      border-radius: 15rem 0 0 0;
+    }
+
+    @include mixins.respond(tablet) {
+      border-radius: 10rem 0 0 0;
+    }
+
+    @include mixins.respond(mobile) {
+      border-radius: 5rem 0 0 0;
+    }
   }
 
   &__background--secondary {
     border-radius: 0 25rem 0 0;
-    background: #316099;
+    background: variables.$blue-color-second;
     padding-left: 12rem;
     margin-right: 12rem;
+
+    @include mixins.respond(laptop) {
+      padding-left: 8rem;
+      border-radius: 0 10rem 0 0;
+      margin-right: 8rem;
+    }
+
+    @include mixins.respond(tablet) {
+      padding-left: 4rem;
+      margin-right: 4rem;
+    }
+
+    @include mixins.respond(mobile) {
+      padding-left: 2rem;
+      margin-right: 2rem;
+      border-radius: 0 5rem 0 0;
+    }
   }
 
   &__brand {
     display: flex;
     flex-direction: column;
     margin-right: 12rem;
+
+    @include mixins.respond(laptop) {
+      margin-right: 6rem;
+    }
+
+    @include mixins.respond(tablet) {
+      margin-right: 0;
+      align-items: center;
+      text-align: center;
+    }
   }
+
   &__logo {
     max-width: 188px;
     margin-bottom: 4rem;
-  }
-  &__contacts {
-    list-style: none;
 
-    font-size: 0.95rem;
-    line-height: 1.8;
-    opacity: 0.9;
+    @include mixins.respond(mobile) {
+      max-width: 140px;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__contacts {
+    @include mixins.respond(tablet) {
+      max-width: 250px;
+    }
   }
 
   &__contact {
     display: flex;
+
+    @include mixins.respond(tablet) {
+      justify-content: center;
+    }
 
     &:not(:last-child) {
       margin-bottom: 3rem;
     }
 
     &-label {
-      font-weight: 600;
-      font-size: 2rem;
-      line-height: 162%;
-      letter-spacing: 0.05em;
-      width: 5rem;
+      @include mixins.text(600, 2rem, 162%, 0.05rem, inherit);
+      width: 6rem;
+
+      @include mixins.respond(tablet) {
+        width: 3rem;
+      }
+
+      @include mixins.respond(mobile) {
+        font-size: 1.6rem;
+      }
     }
 
     &-text {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 162%;
-      letter-spacing: 0.05em;
+      @include mixins.text(400, 2rem, 162%, 0.05rem, inherit);
       max-width: 264px;
+
+      @include mixins.respond(tablet) {
+        max-width: 100%;
+      }
+
+      @include mixins.respond(mobile) {
+        font-size: 1.6rem;
+      }
     }
   }
 
-  &__links{
+  &__links {
     margin-right: 9rem;
+
+    @include mixins.respond(laptop) {
+      margin-right: 6rem;
+    }
+
+    @include mixins.respond(tablet) {
+      margin-right: 0;
+      text-align: center;
+    }
   }
 
   &__links,
   &__socials {
-    h5 {
-      font-weight: 600;
-      font-size: 2.5rem;
-      line-height: 150%;
-      letter-spacing: 0.05em;
+    .footer__title {
+      @include mixins.text(600, 2.5rem, 150%, 0.05rem, inherit);
       margin-bottom: 4rem;
+
+      @include mixins.respond(mobile) {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
     }
-    ul {
+
+    .footer__list {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -81,25 +169,34 @@
       flex-direction: column;
       gap: 2rem;
 
-      a {
-        font-weight: 400;
-        display: block;
-        font-size: 2rem;
-        line-height: 162%;
-        letter-spacing: 0.05em;
+      @include mixins.respond(mobile) {
+        gap: 1.2rem;
+      }
+
+      .footer__link {
+        @include mixins.text(300, 2rem, 162%, 0.05rem, inherit);
         transition: color 0.3s;
 
         &:hover {
-          color: #979292;
+          color: #bbbbbb;
+        }
+
+        @include mixins.respond(mobile) {
+          font-size: 1.6rem;
         }
       }
     }
   }
+
   &__copyright {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 162%;
-    letter-spacing: 0.05em;
-    color: hsl(212.38deg 34.05% 63.73%);
+    @include mixins.text(400, 2rem, 162%, 0.05rem, #83a0c2);
+
+    @include mixins.respond(tablet) {
+      text-align: center;
+    }
+
+    @include mixins.respond(mobile) {
+      font-size: 1.6rem;
+    }
   }
 }

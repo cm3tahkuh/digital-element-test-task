@@ -4,29 +4,59 @@
 .cards {
   padding: 22rem 0;
 
+  @include mixins.respond(tablet) {
+    padding: 6rem 0;
+  }
+
   &__container {
     position: relative;
     display: grid;
     gap: 4rem;
     align-items: start;
+
+    @include mixins.respond(tablet) {
+      gap: 6rem;
+      padding: 0rem 0;
+    }
+
+    @include mixins.respond(mobile) {
+      gap: 4rem;
+    }
   }
 
   &__title {
     @include mixins.title(
-      370px,
+      362px,
       600,
-      3.5rem,
+      4.5rem,
       130%,
-      0.02em,
+      0.05em,
       variables.$blue-color-second
     );
-        position: absolute;
+    position: absolute;
+
+    @include mixins.respond(laptop) {
+      font-size: 3.8rem;
+    }
+
+    @include mixins.respond(tablet) {
+      position: static;
+      text-align: center;
+      margin-bottom: 4rem;
+
+      max-width: 350px;
+      margin: 0 auto 4rem auto;
+    }
+
+    @include mixins.respond(mobile) {
+      font-size: 2.4rem;
+    }
   }
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 12rem;
+    justify-content: space-between;
 
     & > .card:nth-child(1) {
       grid-column: 1 / 2;
@@ -44,6 +74,33 @@
       grid-row: 2;
       align-self: start;
     }
+
+    @include mixins.respond(tablet) {
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+
+      & > .card:nth-child(1),
+      & > .card:nth-child(2) {
+        grid-column: auto;
+        grid-row: auto;
+        transform: none;
+        height: 100%;
+      }
+      & > .card:nth-child(3) {
+        grid-column: span 2 / span 2;
+        grid-row-start: 2;
+      }
+    }
+
+    @include mixins.respond(mobile) {
+      & > .card:nth-child(3) {
+        grid-column: auto;
+        grid-row: auto;
+        transform: none;
+      }
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
   }
 }
 
@@ -53,16 +110,48 @@
   border-radius: 1.25rem;
   box-shadow: 5px 20px 50px 0 rgba(16, 112, 177, 0.2);
   position: relative;
+  margin: 0 auto;
 
-  &__img-wrapper {
-    position: relative;
-    margin-bottom: 1rem;
+  @include mixins.respond(laptop) {
+    padding: 4rem;
   }
 
   &__img {
     width: 100%;
-    max-width: 120px;
-    display: block;
+    max-width: 182px;
+    margin: 0 auto 7rem auto;
+
+    @include mixins.respond(tablet) {
+      max-width: 150px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    @include mixins.respond(mobile) {
+      max-width: 120px;
+    }
+  }
+
+  &--featured {
+    padding-top: 0rem;
+
+    @include mixins.respond(tablet) {
+      padding-top: 2rem;
+    }
+
+    .card__img {
+      transform: translateY(-3rem);
+      z-index: 6;
+      max-width: 253px;
+
+      @include mixins.respond(tablet) {
+        max-width: 150px;
+        transform: translateY(0rem);
+      }
+
+      @include mixins.respond(mobile) {
+        max-width: 120px;
+      }
+    }
   }
 
   &__title {
@@ -75,26 +164,63 @@
       variables.$blue-color-first
     );
     margin-bottom: 2rem;
+
+    @include mixins.respond(laptop) {
+      font-size: 2.2rem;
+    }
+
+    @include mixins.respond(tablet) {
+      font-size: 2rem;
+    }
+
+    @include mixins.respond(mobile) {
+      font-size: 1.8rem;
+      text-align: center;
+    }
   }
 
   &__text {
-    @include mixins.paragraph(425px, variables.$blue-color-first);
-    margin-bottom: 1rem;
+    @include mixins.paragraph(284px, variables.$blue-color-first);
+    margin-bottom: 4rem;
+
+    @include mixins.respond(tablet) {
+      font-size: 1.6rem;
+    }
+
+    @include mixins.respond(mobile) {
+      font-size: 1.4rem;
+      text-align: center;
+    }
   }
 
   &__link {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: variables.$blue-color-third;
-    text-decoration: none;
-  }
+    @include mixins.text(
+      600,
+      1.75rem,
+      214%,
+      0.05rem,
+      variables.$blue-color-four
+    );
 
-  &--featured {
-    padding-top: 3.2rem;
+    display: flex;
+    gap: 2.5rem;
 
-    .card__img {
-      transform: translateY(-5rem);
-      z-index: 6;
+    @include mixins.respond(mobile) {
+      justify-content: center;
+      font-size: 1.4rem;
+      gap: 1.5rem;
+    }
+
+    img {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: variables.$blue-color-four;
+
+      img {
+        transform: translateX(5px);
+      }
     }
   }
 }

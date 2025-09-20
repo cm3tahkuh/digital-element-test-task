@@ -1,4 +1,4 @@
-@use "../variables.scss" as variables;
+@use "../variables.scss";
 
 .header {
   width: 100%;
@@ -7,15 +7,11 @@
   z-index: 10;
 
   &__container {
-    max-width: 1200px;
+    max-width: 1232px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-
-  &__logo-img {
-    height: auto;
   }
 
   &__burger {
@@ -28,36 +24,5 @@
     justify-content: center;
     width: 3rem;
     height: 2rem;
-  }
-
-  &__nav {
-    display: none;
-    position: absolute;
-    top: 6rem;
-    right: 2rem;
-    background-color: variables.$white-color;
-    width: 25rem;
-    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-
-    &-active {
-      display: block;
-    }
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  &__link {
-    text-decoration: none;
-    color: variables.$blue-color-third;
-    font-weight: 400;
-    font-size: 3rem;
-  }
-
-  @media (max-width: 768px) {
   }
 }
