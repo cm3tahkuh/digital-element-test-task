@@ -1,0 +1,59 @@
+@use "../mixins";
+@use "../variables";
+
+.cta {
+  position: relative;
+
+  padding: 12em 0;
+
+  &__text {
+    max-width: 500px;
+  }
+
+  &__container::after {
+    content: "";
+    position: absolute;
+    bottom: -12rem;
+    left: -9999px;
+    right: 10rem;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    margin-top: 12rem;
+  }
+
+  &__container {
+    display: flex;
+
+    align-items: center;
+    gap: 22.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__text {
+    max-width: 500px;
+  }
+  &__title {
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    max-width: 340px;
+    font-weight: 600;
+    line-height: 128%;
+    letter-spacing: 0.05em;
+    margin-bottom: 4rem;
+  }
+  &__description {
+    font-size: 2rem;
+    max-width: 460px;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  &__button {
+    @include mixins.cta-button(#5a98d0, white, 2rem 9rem, 2rem, 1rem);
+    &:hover {
+      background: #4a86c5;
+    }
+  }
+}

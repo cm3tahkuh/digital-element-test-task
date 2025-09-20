@@ -9,12 +9,17 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 figure,
 blockquote,
 dl,
+ul,
+li,
 dd {
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -38,9 +43,9 @@ h4 {
   text-wrap: balance;
 }
 
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-  color: currentColor;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 img,

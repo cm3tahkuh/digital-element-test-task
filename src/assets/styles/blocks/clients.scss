@@ -1,101 +1,76 @@
-@use "../mixins.scss";
+@use "../mixins";
+@use "../variables";
 
 .clients {
   padding: 12rem 0;
-  background: hsl(208, 56%, 58%); // голубой фон
-  border-radius: 25rem 0 0 0; // скругление сверху слева и справа
   position: relative;
 
   &__container {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 15rem;
     position: relative;
     z-index: 2;
   }
+
   &__header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 3rem;
+    gap: 12rem;
   }
+
   &__title {
-    font-size: 4rem;
-    font-weight: 600;
+    font-size: 4.5rem;
+    line-height: 128%;
+    letter-spacing: 0.05em;
     color: #ffffff;
-    max-width: 250px;
+    max-width: 227px;
   }
+
   &__description {
     font-size: 2rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
-    max-width: 420px;
+    max-width: 523px;
+    letter-spacing: 0.05em;
   }
+
   &__logos {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
   }
-  &__logo {
-    background: rgba(255, 255, 255, 0.1);
 
-    border-radius: 0.5rem;
-    padding: 2rem;
+  &__logo {
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: 0.01em;
+    line-height: 230%;
     text-align: center;
-    font-weight: 500;
     color: #ffffff;
+    padding: 5rem;
     transition: background 0.3s;
+
     &:hover {
       background: rgba(255, 255, 255, 0.2);
     }
+
     &--more {
-      background: rgba(255, 255, 255, 0.3);
-      color: #1f3f68;
+      background: rgb(78 134 187);
       font-weight: 600;
     }
-  }
-}
-.cta {
-  position: relative;
 
-  padding: 12em 0;
-
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 3rem;
-    position: relative;
-    z-index: 2;
-  }
-
-  &__container::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -9999px;
-    right: 0;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.3);
-  }
-  &__text {
-    max-width: 500px;
-  }
-  &__title {
-    font-size: 4.5rem;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 1rem;
-  }
-  &__description {
-    font-size: 2rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
-  }
-  &__button {
-    @include mixins.cta-button(#5a98d0, white, 2rem 9rem, 2rem, 1rem);
-    &:hover {
-      background: #4a86c5;
+    &:nth-child(-n + 4) {
+      border-top: none;
+    }
+    &:nth-child(4n) {
+      border-right: none;
+    }
+    &:nth-child(4n + 1) {
+      border-left: none;
+    }
+    &:nth-last-child(-n + 4) {
+      border-bottom: none;
     }
   }
 }
